@@ -5,9 +5,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Popular Show Quiz</title>
         <script defer src="index.js"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
     <body>
-    
+        <!-- Main text will be displayed here -->
+        <h1>Questions?</h1>
+
+        <!-- Get the player's name -->
+        <form id="get-player-name">
+            <label for="player-name"></label>
+            <input type="text" id="player-name" name="player-name">
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Potential Answers -->
+        <form class="grid grid-cols-2">
+            <div>
+                <input type="radio" id="option-one" name="option-one" >
+                <label for="option-one">Question 1</label>
+            </div>
+
+            <div>
+                <input type="radio" id="option-two" name="option-two" >
+                <label for="option-one">Question 2</label>
+            </div>
+
+            <div>
+                <input type="radio" id="option-three" name="option-three" >
+                <label for="option-one">Question 3</label>
+            </div>
+
+            <div>
+                <input type="radio" id="option-one" name="option-four" >
+                <label for="option-one">Question 4</label>
+            </div>
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
     </body>
 </html>
