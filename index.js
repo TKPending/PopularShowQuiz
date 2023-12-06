@@ -13,9 +13,15 @@ const showQuiz = () => {
 }
 
 const hideHomeScreen = () => {
-    document.getElementById("home-text").style.display="none";
-    document.getElementById("welcome-screen-input").style.display="none";
+    document.getElementById("welcome-screen-input").style.display = "none";
+
+    document.getElementById("home-text").innerHTML = `Hello ${username}!<br>There are 7 Questions<br>Good Luck!`;
+
+    setTimeout(() => {
+        document.getElementById("home-text").style.display = "none";
+    }, 2000);
 }
+
 
 const checkName = (str) => {
     const regex = /[0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
@@ -37,6 +43,10 @@ const incorrectName = () => {
     setTimeout(() => {resetColor(originalBackgroundColor, originalBorderColor)}, 800)
 }
 
+const correctName = () => {
+    hideHomeScreen()
+}
+
 const nameOnClick = () => {
     document.getElementById("welcome-screen-input").addEventListener("submit", function (event) {
         event.preventDefault(); 
@@ -47,8 +57,11 @@ const nameOnClick = () => {
             incorrectName();
             console.log("Invalid characters in the name");
         } else {
-            hideHomeScreen();
-            showQuiz();
+            correctName()
+
+            setTimeout(() => {
+                showQuiz();
+            }, 2000)
         }
     });
 }
