@@ -45,6 +45,10 @@ const incorrectName = () => {
 
 const correctName = () => {
     hideHomeScreen()
+
+    setTimeout(() => {
+        showQuiz();
+    }, 2000)
 }
 
 const nameOnClick = () => {
@@ -58,10 +62,6 @@ const nameOnClick = () => {
             console.log("Invalid characters in the name");
         } else {
             correctName()
-
-            setTimeout(() => {
-                showQuiz();
-            }, 2000)
         }
     });
 }
