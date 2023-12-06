@@ -10,7 +10,7 @@
     
     <body class="flex flex-col h-screen w-screen items-center justify-center">
         <!-- Main text will be displayed here -->
-        <div id="welcome-screen-question" class="flex w-10/12 h-1/3 items-center justify-center">            
+        <div id="page-main-text" class="flex w-10/12 h-1/3 items-center justify-center">            
             <h1 id="home-text" class="text-center text-5xl">
                 Welcome to Popular Show Quiz!<br>
                 <span class="text-4xl">Please enter your name:</span>
@@ -27,10 +27,10 @@
                 required oninvalid="this.setCustomValidity('Can\'t continue without your name :\\')"
             >
     
-            <button id="user-entered-name" type="submit" class="border-2 text-black hover:text-white h-2/6 w-2/12 rounded-2xl my-auto text-3xl hover:bg-green-500 hover:scale-105 transition duration-200">Submit</button>
+            <button id="user-entered-name" type="submit" class="border-2 text-black hover:text-white h-2/6 w-2/12 rounded-2xl my-auto text-3xl hover:bg-green-500 hover:scale-105 transition duration-200" onsubmit="nameOnClick">Submit</button>
         </form> 
 
-        <form class="mx-auto h-2/4 w-10/12 p-4 items-center justify-center">
+        <form id="quiz-options" class="mx-auto h-2/4 w-10/12 p-4 items-center justify-center">
             <div class="grid grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
                     <input type="radio" id="option-one" name="user-answer" class="ml-8">
@@ -48,7 +48,7 @@
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="option-one" name="user-answer" class="ml-8">
+                    <input type="radio" id="option-four" name="user-answer" class="ml-8">
                     <label for="option-one" class="w-full ml-4 text-2xl"></label>
                 </div>
             </div>
