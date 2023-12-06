@@ -1,15 +1,3 @@
-// Main Tasks:
-//     - "Changing page" after pressing submit
-//     - Keep track of correct answers
-//     - Use JS to change text
-//     - Use JS to display elements
-
-
-// Aim of the intro screen:
-//     Hide question section
-//     Keep track of name
-//     Move to question when next is pressed
-
 let username = "";
 
 const hideQuiz = () => {
@@ -34,14 +22,29 @@ const checkName = (str) => {
     return regex.test(str);
 }
 
+const resetColor = (originalBackground, originalBorder) => {
+    document.getElementById("user-entered-name").style.backgroundColor = originalBackground;
+    document.getElementById("player-name").style.borderColor = originalBorder;
+}
 
-function nameOnClick() {
+const incorrectName = () => {
+    const originalBackgroundColor = document.getElementById("user-entered-name").style.backgroundColor;
+    const originalBorderColor = document.getElementById("player-name").style.borderColor;
+
+    document.getElementById("user-entered-name").style.backgroundColor = "red";
+    document.getElementById("player-name").style.borderColor = "red";
+
+    setTimeout(() => {resetColor(originalBackgroundColor, originalBorderColor)}, 800)
+}
+
+const nameOnClick = () => {
     document.getElementById("welcome-screen-input").addEventListener("submit", function (event) {
         event.preventDefault(); 
 
         username = document.getElementById("player-name").value;
         
         if (checkName(username)) {
+            incorrectName();
             console.log("Invalid characters in the name");
         } else {
             hideHomeScreen();
