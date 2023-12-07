@@ -7,6 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
         <script defer type="module" src="quiz.js"></script>
         <script defer type="module" src="index.js"></script>
+        <script defer type="module" src="questions.js"></script>
     </head>
     
     <body class="flex flex-col h-screen w-screen items-center justify-center">
@@ -34,28 +35,28 @@
         <form id="quiz-options" class="mx-auto h-2/4 w-10/12 p-4 items-center justify-center">
             <div class="grid grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="option-one" name="user-answer" class="ml-8">
-                    <label for="option-one" class="w-full ml-4 text-2xl"></label>
+                    <input type="radio" id="a" name="user-answer" class="ml-8">
+                    <label id="question-one" for="a" class="w-full ml-4 text-2xl"></label>
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="option-two" name="user-answer" class="ml-8">
-                    <label for="option-one" class="w-full ml-4 text-2xl"></label>
+                    <input type="radio" id="b" name="user-answer" class="ml-8">
+                    <label id="question-two" for="b" class="w-full ml-4 text-2xl"></label>
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="option-three" name="user-answer" class="ml-8">
-                    <label for="option-one" class="w-full ml-4 text-2xl"></label>
+                    <input type="radio" id="c" name="user-answer" class="ml-8">
+                    <label id="question-three" for="c" class="w-full ml-4 text-2xl"></label>
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="option-four" name="user-answer" class="ml-8">
-                    <label for="option-one" class="w-full ml-4 text-2xl"></label>
+                    <input type="radio" id="d" name="user-answer" class="ml-8">
+                    <label id="question-four" for="d" class="w-full ml-4 text-2xl"></label>
                 </div>
             </div>
 
             <div class="border-2 h-16 w-40 float-right mr-10 rounded-lg hover:bg-green-500 transition duration-200">
-                <button id="user-pressed-next" type="submit" class="h-full w-full">Next Question</button>
+                <button id="user-pressed-next" type="button" class="h-full w-full" onclick="askQuestion">Next Question</button>
             </div>
         </form> 
     </body>

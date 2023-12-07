@@ -1,4 +1,4 @@
-import { displayQuestion } from './quiz.js';
+import { startQuiz } from './quiz.js';
 
 let username = "";
 
@@ -56,6 +56,7 @@ const correctName = () => {
 const nameOnClick = () => {
     document.getElementById("welcome-screen-input").addEventListener("submit", function (event) {
         event.preventDefault(); 
+        // TODO: Bugging when a user inputs nothing
 
         username = document.getElementById("player-name").value;
         
@@ -64,7 +65,7 @@ const nameOnClick = () => {
             console.log("Invalid characters in the name");
         } else {
             correctName();
-            displayQuestion("New Question");
+            startQuiz();
         }
     });
 }

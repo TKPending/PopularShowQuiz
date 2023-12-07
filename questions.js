@@ -1,4 +1,4 @@
-const tvShowPlotQuestions = [
+export const quizQuestions = [
     {
       question: "In the TV series 'Black Mirror,' what is the name of the virtual reality gaming system featured in the episode 'Striking Vipers'?",
       options: {
