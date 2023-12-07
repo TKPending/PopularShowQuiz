@@ -1,8 +1,12 @@
 // Create Submit Page
 let score = 0;
 
-const displayQuestion = (question) => {
-    document.getElementById('question').textContent = question.question;
+export const displayQuestion = (question) => {
+    if (question) {
+        document.getElementById('question').textContent = question;
+    } else {
+        console.log("Error: Problem with the question")
+    }
 }
 
 const displayOptions = (options) => {

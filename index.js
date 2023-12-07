@@ -1,3 +1,5 @@
+import { displayQuestion } from './quiz.js';
+
 let username = "";
 
 const hideQuiz = () => {
@@ -61,7 +63,8 @@ const nameOnClick = () => {
             incorrectName();
             console.log("Invalid characters in the name");
         } else {
-            correctName()
+            correctName();
+            displayQuestion("New Question");
         }
     });
 }
