@@ -1,6 +1,8 @@
 import { quizQuestions } from './questions.js';
 
 let score = 0;
+let currentQuestionIndex = 0;
+let quizLength = quizQuestions.length
 
 const displayQuestion = (question) => {
     if (question) {
@@ -17,14 +19,18 @@ const displayOptions = (options) => {
         document.getElementById('question-three').textContent = options.c;
         document.getElementById('question-four').textContent = options.d;
 
+        // Add a common class to all radio buttons
+        const radioButtons = document.querySelectorAll('.user-answer-radio');
+        
         // Reset to unchecked
-        document.querySelectorAll('input[name="user-answer"]').forEach((radio) => {
+        radioButtons.forEach((radio) => {
             radio.checked = false;
         });
     } else {
         console.log("Error: Problem with rendering options.")
     }
 };
+
 
 const displayCurrentQuestion = (currentQuestion) => {
     displayQuestion(currentQuestion.question);
@@ -33,7 +39,6 @@ const displayCurrentQuestion = (currentQuestion) => {
 
 // TODO: Occasionally the answer for the next question is being shown for current question
 const correctAnswer = (userInput, questionAnswer) => {
-    console.log(`User answer: ${userInput}\nCorrect answer: ${questionAnswer}\n\n`)
     if (userInput === questionAnswer) {
         score++;
     }
@@ -43,39 +48,42 @@ const questionAnsweredScreen = () => {
 
 }
 
-const askQuestion = (currentQuestionIndex) => {
+const askQuestion = () => {
     const currentQuestion = quizQuestions[currentQuestionIndex];
-    let timeoutId;
+    let userAnswer;
 
     displayCurrentQuestion(currentQuestion);
 
-    document.getElementById('user-pressed-next').addEventListener('click', () => {
-        clearTimeout(timeoutId);  // Clear the previous timeout
+    document.getElementById('quiz-options').addEventListener('submit', (event) => {
+        event.preventDefault();
 
-        const userAnswer = document.querySelector('input[name="user-answer"]:checked');
-        
+        userAnswer = document.querySelector('input[name="user-answer"]:checked');
+
+        // Check User Answer
         if (userAnswer) {
             const selectedAnswer = userAnswer.id;
             correctAnswer(selectedAnswer, currentQuestion.correctAnswer);
+            console.log(`Question: ${currentQuestion.question}`);
+            console.log(`User's Answer: ${selectedAnswer}`);
+            console.log(`Correct Answer: ${currentQuestion.correctAnswer}`);
         } else {
             console.log("Please select an answer");
             return;
         }
 
-        timeoutId = setTimeout(() => {
-            if (currentQuestionIndex + 1 < quizQuestions.length) {
-                askQuestion(currentQuestionIndex + 1);
-            } else {
-                console.log(`Quiz completed. Your score: ${score}`);
-            }
-        }, 0); // TODO: Adjust the delay as needed
+        currentQuestionIndex += 1;
+        if (currentQuestionIndex < quizLength) {
+            console.log(currentQuestionIndex);
+            askQuestion(currentQuestionIndex); 
+        } else {
+            console.log(`Quiz completed. Your score: ${score}`);
+        }
     });
 };
 
 window.askQuestion = askQuestion;
 
 export const startQuiz = () => {
-    let questionIndex = 0;
-
-    askQuestion(questionIndex);
+    askQuestion();
 };
+

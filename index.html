@@ -29,34 +29,34 @@
                 required oninvalid="this.setCustomValidity('Can\'t continue without your name :\\')"
             >
     
-            <button id="user-entered-name" type="submit" class="border-2 text-black hover:text-white h-2/6 w-2/12 rounded-2xl my-auto text-3xl hover:bg-green-500 hover:scale-105 transition duration-200" onsubmit="nameOnClick">Submit</button>
+            <button id="user-entered-name" type="submit" class="border-2 text-black hover:text-white h-2/6 w-2/12 rounded-2xl my-auto text-3xl hover:bg-green-500 hover:scale-105 transition duration-200" onsubmit="nameOnClick()">Submit</button>
         </form> 
 
         <form id="quiz-options" class="mx-auto h-2/4 w-10/12 p-4 items-center justify-center">
             <div class="grid grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="a" name="user-answer" class="ml-8">
+                    <input type="radio" id="a" name="user-answer" class="ml-8 user-answer-radio">
                     <label id="question-one" for="a" class="w-full ml-4 text-2xl"></label>
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="b" name="user-answer" class="ml-8">
+                    <input type="radio" id="b" name="user-answer" class="ml-8 user-answer-radio">
                     <label id="question-two" for="b" class="w-full ml-4 text-2xl"></label>
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="c" name="user-answer" class="ml-8">
+                    <input type="radio" id="c" name="user-answer" class="ml-8 user-answer-radio">
                     <label id="question-three" for="c" class="w-full ml-4 text-2xl"></label>
                 </div>
     
                 <div class="flex items-center border-2 w-10/12 h-3/4 rounded hover:bg-green-500 transition duration-200">
-                    <input type="radio" id="d" name="user-answer" class="ml-8">
+                    <input type="radio" id="d" name="user-answer" class="ml-8 user-answer-radio">
                     <label id="question-four" for="d" class="w-full ml-4 text-2xl"></label>
                 </div>
             </div>
 
             <div class="border-2 h-16 w-40 float-right mr-10 rounded-lg hover:bg-green-500 transition duration-200">
-                <button id="user-pressed-next" type="button" class="h-full w-full" onclick="askQuestion">Next Question</button>
+                <button id="user-pressed-next" type="button" class="h-full w-full" onclick="askQuestion()">Next Question</button>
             </div>
         </form> 
     </body>
