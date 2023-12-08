@@ -22,7 +22,6 @@ const completeDisplayText = (finalScore) => {
 export const quizCompletion = (finalScore) => {
     const completeDisplay = completeDisplayText(finalScore);
 
-    // Display the result message and set the background color
     document.body.innerHTML = completeDisplay.message;
     document.body.style.backgroundColor = completeDisplay.bgColor;
 };
