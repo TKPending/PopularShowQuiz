@@ -1,8 +1,7 @@
 import { quizQuestions } from './questions.js';
 
 let score = 0;
-let currentQuestionIndex = 0;
-let quizLength = quizQuestions.length
+const quizLength = quizQuestions.length;
 
 const displayQuestion = (question) => {
     if (question) {
@@ -21,7 +20,7 @@ const displayOptions = (options) => {
 
         // Add a common class to all radio buttons
         const radioButtons = document.querySelectorAll('.user-answer-radio');
-        
+
         // Reset to unchecked
         radioButtons.forEach((radio) => {
             radio.checked = false;
@@ -31,59 +30,47 @@ const displayOptions = (options) => {
     }
 };
 
-
 const displayCurrentQuestion = (currentQuestion) => {
     displayQuestion(currentQuestion.question);
     displayOptions(currentQuestion.options);
-}
-
-// TODO: Occasionally the answer for the next question is being shown for current question
-const correctAnswer = (userInput, questionAnswer) => {
-    if (userInput === questionAnswer) {
-        score++;
-    }
 };
 
-const questionAnsweredScreen = () => {
+const checkAnswer = (userInput, questionAnswer) => {
+    return userInput === questionAnswer;
+};
 
-}
-
-const askQuestion = () => {
-    const currentQuestion = quizQuestions[currentQuestionIndex];
-    let userAnswer;
-
+const askQuestion = async (currentQuestion) => {
     displayCurrentQuestion(currentQuestion);
 
-    document.getElementById('quiz-options').addEventListener('submit', (event) => {
-        event.preventDefault();
+    return new Promise((resolve) => {
+        const handleAnswer = (event) => {
+            event.preventDefault();
 
-        userAnswer = document.querySelector('input[name="user-answer"]:checked');
+            const userAnswer = document.querySelector('input[name="user-answer"]:checked');
 
-        // Check User Answer
-        if (userAnswer) {
-            const selectedAnswer = userAnswer.id;
-            correctAnswer(selectedAnswer, currentQuestion.correctAnswer);
-            console.log(`Question: ${currentQuestion.question}`);
-            console.log(`User's Answer: ${selectedAnswer}`);
-            console.log(`Correct Answer: ${currentQuestion.correctAnswer}`);
-        } else {
-            console.log("Please select an answer");
-            return;
-        }
+            if (userAnswer) {
+                const selectedAnswer = userAnswer.id;
+                const isCorrect = checkAnswer(selectedAnswer, currentQuestion.correctAnswer);
+                score += isCorrect ? 1 : 0;
 
-        currentQuestionIndex += 1;
-        if (currentQuestionIndex < quizLength) {
-            console.log(currentQuestionIndex);
-            askQuestion(currentQuestionIndex); 
-        } else {
-            console.log(`Quiz completed. Your score: ${score}`);
-        }
+                console.log(`Question: ${currentQuestion.question}\nUser Answer: ${selectedAnswer}\nCorrect Answer: ${currentQuestion.correctAnswer}\nCurrent Score: ${score}`);
+
+                document.getElementById('quiz-options').removeEventListener("submit", handleAnswer);
+                resolve();
+            } else {
+                console.log('Please select an answer');
+            }
+        };
+
+        document.getElementById('quiz-options').addEventListener("submit", handleAnswer);
     });
 };
 
-window.askQuestion = askQuestion;
+export const startQuiz = async () => {
+    for (let i = 0; i < quizLength; i++) {
+        const currentQuestion = quizQuestions[i];
+        await askQuestion(currentQuestion);
+    }
 
-export const startQuiz = () => {
-    askQuestion();
+    console.log(`Quiz completed. Your score: ${score}`);
 };
-
