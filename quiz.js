@@ -11,6 +11,14 @@ const displayQuestion = (question) => {
     }
 };
 
+const resetButtons = () => {
+    const radioButtons = document.querySelectorAll('.user-answer-radio');
+
+    radioButtons.forEach((radio) => {
+        radio.checked = false;
+    });
+}
+
 const displayOptions = (options) => {
     if (options) {
         document.getElementById('question-one').textContent = options.a;
@@ -18,13 +26,8 @@ const displayOptions = (options) => {
         document.getElementById('question-three').textContent = options.c;
         document.getElementById('question-four').textContent = options.d;
 
-        // Add a common class to all radio buttons
-        const radioButtons = document.querySelectorAll('.user-answer-radio');
+        resetButtons();
 
-        // Reset to unchecked
-        radioButtons.forEach((radio) => {
-            radio.checked = false;
-        });
     } else {
         console.log("Error: Problem with rendering options.")
     }
