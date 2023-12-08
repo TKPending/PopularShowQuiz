@@ -1,7 +1,13 @@
 import { quizQuestions } from './questions.js';
+import { quizCompletion } from './complete.js';
 
 let score = 0;
 const quizLength = quizQuestions.length;
+
+export const hideQuiz = () => {
+    document.getElementById("question").style.display="none";
+    document.getElementById("quiz-options").style.display="none";
+}
 
 const displayQuestion = (question) => {
     if (question) {
@@ -69,11 +75,29 @@ const askQuestion = async (currentQuestion) => {
     });
 };
 
-export const startQuiz = async () => {
+const finishedQuiz = (username) => {
+    hideQuiz()
+
+    const completeMessage = document.getElementById('complete-message');
+
+    completeMessage.style.display = "block";
+    completeMessage.innerHTML = `Congratulations ${username} on finishing the quiz!<br>Loading Results.....`;
+
+    setTimeout(() => {
+        completeMessage.style.display="none";
+    }, 2000);
+}
+
+export const startQuiz = async (username) => {
     for (let i = 0; i < quizLength; i++) {
         const currentQuestion = quizQuestions[i];
         await askQuestion(currentQuestion);
     }
 
+    finishedQuiz(username);
+    
+    setTimeout(() => {
+        quizCompletion(score)
+    }, 2100);
     console.log(`Quiz completed. Your score: ${score}`);
 };
