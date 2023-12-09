@@ -26,7 +26,7 @@ const resetButtons = () => {
     }
 
     // TODO: Transition smoother
-    document.getElementById('user-pressed-next').style.backgroundColor = "white";
+    // document.getElementById('user-pressed-next').style.backgroundColor = "white";
 }
 
 const displayOptions = (options) => {
@@ -79,7 +79,7 @@ const askQuestion = async (currentQuestion) => {
 const finishedQuiz = (username) => {
     hideQuiz()
 
-    const completeMessage = document.getElementById('complete-message');
+    const completeMessage = document.getElementById('completed-message');
 
     completeMessage.style.display = "block";
     completeMessage.innerHTML = `Congratulations ${username} on finishing the quiz!<br>Loading Results.....`;

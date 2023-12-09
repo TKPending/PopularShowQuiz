@@ -17,11 +17,19 @@ const completeDisplayText = (finalScore) => {
     }
 };
 
+const showButtons = () => {
+    document.getElementById("finished-section").style.display = "flex";
+}
 
 
 export const quizCompletion = (finalScore) => {
     const completeDisplay = completeDisplayText(finalScore);
 
-    document.body.innerHTML = completeDisplay.message;
+    document.getElementById("completed-message").style.display = "block";
+    document.getElementById("completed-message").innerHTML = completeDisplay.message;
     document.body.style.backgroundColor = completeDisplay.bgColor;
-};
+
+    setTimeout(() => {
+        showButtons();
+    }, 3000);
+}; 
