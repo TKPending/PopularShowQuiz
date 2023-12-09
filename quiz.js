@@ -24,6 +24,9 @@ const resetButtons = () => {
     for (const item of options) {
         document.getElementById(item).style.backgroundColor = "white";
     }
+
+    // TODO: Transition smoother
+    document.getElementById('user-pressed-next').style.backgroundColor = "white";
 }
 
 const displayOptions = (options) => {
