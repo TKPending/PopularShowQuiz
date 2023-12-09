@@ -19,11 +19,11 @@ const displayQuestion = (question) => {
 };
 
 const resetButtons = () => {
-    const radioButtons = document.querySelectorAll('.user-answer-radio');
+    const options = ["option-one", "option-two", "option-three", "option-four"];
 
-    radioButtons.forEach((radio) => {
-        radio.checked = false;
-    });
+    for (const item of options) {
+        document.getElementById(item).style.backgroundColor = "white";
+    }
 }
 
 const displayOptions = (options) => {
@@ -113,7 +113,6 @@ export const optionBgColor = (selectedOption) => {
         quizOption.style.backgroundColor = optionId === selectedOption ? "blue" : "";
     }
 };
-
 
 // TODO: Find an efficient way of doing this. DRY
 document.getElementById("option-one").addEventListener("click", () => {
