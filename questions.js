@@ -1,74 +1,72 @@
 export const quizQuestions = [
-    {
-      question: "In the TV series 'Black Mirror,' what is the name of the virtual reality gaming system featured in the episode 'Striking Vipers'?",
+  {
+      question: "In Game of Thrones, which house is known for their words 'Fire and Blood'?",
       options: {
-        a: "Infinity Game",
-        b: "Eternal Oasis",
-        c: "Striking Vipers X",
-        d: "Nebula Quest"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "In 'The Wire,' what is the name of the fictional city in which the series is primarily set?",
-      options: {
-        a: "Baltimore",
-        b: "Chicago",
-        c: "Detroit",
-        d: "Philadelphia"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "In 'Westworld,' what is the name of the corporation that created the hosts?",
-      options: {
-        a: "Delos Incorporated",
-        b: "HostTech Solutions",
-        c: "SynthCorp",
-        d: "TechWorld Innovations"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "In 'Breaking Bad,' what is the alias used by Gustavo Fring to conceal his true identity?",
-      options: {
-        a: "The Chemist",
-        b: "The Supplier",
-        c: "The Enigma",
-        d: "The Chicken Man"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "What is the name of the mysterious town in 'Twin Peaks,' where the murder of Laura Palmer takes place?",
-      options: {
-        a: "Greendale",
-        b: "Riverdale",
-        c: "Twin Peaks",
-        d: "Silent Hill"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "In 'The Sopranos,' what is the nickname of Tony Soprano's therapist?",
-      options: {
-        a: "Dr. Dream",
-        b: "Dr. Melfi",
-        c: "Dr. Insight",
-        d: "Dr. Shrink"
+          a: "House Stark",
+          b: "House Targaryen",
+          c: "House Lannister",
+          d: "House Baratheon"
       },
       correctAnswer: "b"
-    },
-    {
-      question: "In 'Stranger Things,' what is the name of the government laboratory conducting experiments in Hawkins?",
+  },
+  {
+      question: "What is the street name where Walter White and Jesse Pinkman operate in Breaking Bad?",
       options: {
-        a: "Project Sigma",
-        b: "Lab-X",
-        c: "Hawkins Research Facility",
-        d: "Hawkins National Laboratory"
+          a: "Blue Avenue",
+          b: "Heisenberg Street",
+          c: "Walter White Way",
+          d: "Los Pollos Hermanos Lane"
       },
       correctAnswer: "d"
-    }
+  },
+  {
+      question: "In Peaky Blinders, what is the name of Thomas Shelby's horse?",
+      options: {
+          a: "Black Beauty",
+          b: "Red Rum",
+          c: "Grace's Secret",
+          d: "Midnight Rider"
+      },
+      correctAnswer: "c"
+  },
+  {
+      question: "Who is the Half-Blood Prince in Harry Potter?",
+      options: {
+          a: "Sirius Black",
+          b: "Severus Snape",
+          c: "Remus Lupin",
+          d: "Albus Dumbledore"
+      },
+      correctAnswer: "b"
+  },
+  {
+      question: "What is the name of Ross and Monica's dog in Friends?",
+      options: {
+          a: "Fluffy",
+          b: "Whiskers",
+          c: "Chi-Chi",
+          d: "LaPoo"
+      },
+      correctAnswer: "c"
+  },
+  {
+      question: "In The Office, who started the fire in the Dunder Mifflin office?",
+      options: {
+          a: "Dwight Schrute",
+          b: "Ryan Howard",
+          c: "Michael Scott",
+          d: "Kevin Malone"
+      },
+      correctAnswer: "d"
+  },
+  {
+      question: "What is the full name of the owner of Tom and Jerry in some episodes?",
+      options: {
+          a: "Mrs. Thompson",
+          b: "Mr. Wilson",
+          c: "Mammy Two Shoes",
+          d: "Uncle Pecos"
+      },
+      correctAnswer: "c"
+  }
 ];
-
-  
