@@ -13,29 +13,30 @@
         <script defer type="module" src="complete.js"></script>
     </head>
     
-    <body class="flex flex-col h-screen w-screen items-center justify-center">
+    <body class="flex flex-col h-screen w-screen items-center justify-center bg-stone-600">
         <!-- Main text will be displayed here -->
-        <div id="page-main-text" class="flex w-10/12 h-1/3 items-center justify-center">            
-            <h1 id="home-text" class="text-center text-5xl">
+        <div id="page-main-text" class="flex w-10/12 md:h-1/3 items-center justify-center">            
+            <h1 id="home-text" class="text-center text-2xl md:text-5xl">
                 Welcome to Popular Show Quiz!<br>
-                <span class="text-4xl">Please enter your name:</span>
+                <span class="text-3xl md:text-4xl">Please enter your name:</span>
             </h1> 
-            <h1 id="question" class="mx-auto text-4xl text-center"></h1>
-            <h1 id="complete-message" class="mx-auto text-4xl text-center hidden"></h1>
+            <h1 id="question" class="mx-auto text-xl md:text-4xl text-center"></h1>
+            <h1 id="complete-message" class="mx-auto p-4 md:p-0 text-xl md:text-4xl text-center hidden"></h1>
         </div>
     
         <!-- Get the player's name -->       
-        <form id="welcome-screen-input" class="flex w-full h-1/5 justify-center gap-6" id="get-player-name">
+        <form id="welcome-screen-input" class="flex flex-col md:flex-row w-full md:h-1/5 justify-center items-center gap-6 mt-10 md:m-0" id="get-player-name">
             <label for="player-name"></label>
             <input type="text" id="player-name" name="player-name" 
-                class="border-2 h-2/5 w-2/5 rounded-2xl my-auto text-4xl text-center hover:border-green-500 transition duration-200" 
+                class="border-2 p-2 md:p-0 md:h-2/5 w-3/5 md:w-2/5 rounded-2xl my-auto text-2xl md:text-4xl text-center hover:border-blue-500 transition duration-200" 
                 required oninvalid="this.setCustomValidity('Can\'t continue without your name :\\')"
             >
     
-            <button id="user-entered-name" type="submit" class="border-2 text-black hover:text-white h-2/6 w-2/12 rounded-2xl my-auto text-3xl hover:bg-green-500 hover:scale-105 transition duration-200" onsubmit="nameOnClick()">Submit</button>
+            <button id="user-entered-name" type="submit" class="border-2 text-black hover:text-white h-3/6 md:h-2/6 w-5/12 md:w-2/12 rounded-2xl my-auto text-2xl md:text-3xl hover:bg-blue-500 hover:scale-105 transition duration-200" onsubmit="nameOnClick()">Submit</button>
         </form> 
 
         <!-- Display question and options -->
+<<<<<<< HEAD
         <form id="quiz-options" class="mx-auto h-2/4 w-10/12 p-4 items-center justify-center">
             <div class="grid grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
 
@@ -57,11 +58,34 @@
                 <div id="four-option" class="flex items-center border-2 w-10/12 h-3/4 rounded option">
                     <input type="radio" id="d" name="user-answer" class="ml-8 user-answer-radio" onclick="changeBgColor('fourth-option')">
                     <label id="question-four" for="d" class="w-full ml-4 text-2xl"></label>
+=======
+        <form id="quiz-options" class="mx-auto mt-10 md:mt-0 h-2/3 md:h-2/4 w-10/12 p-4 items-center justify-center">
+            <div class="flex flex-col justify-around gap-4 md:grid md:grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
+                <div class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
+                    <input type="radio" id="a" name="user-answer" class="ml-8 user-answer-radio">
+                    <label id="question-one" for="a" class="w-full ml-4 text-xl md:text-2xl"></label>
+                </div>
+    
+                <div class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
+                    <input type="radio" id="b" name="user-answer" class="ml-8 user-answer-radio">
+                    <label id="question-two" for="b" class="w-full ml-4 text-xl md:text-2xl"></label>
+                </div>
+    
+                <div class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
+                    <input type="radio" id="c" name="user-answer" class="ml-8 user-answer-radio">
+                    <label id="question-three" for="c" class="w-full ml-4 text-xl md:text-2xl"></label>
+                </div>
+    
+                <div class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
+                    <input type="radio" id="d" name="user-answer" class="ml-8 user-answer-radio">
+                    <label id="question-four" for="d" class="w-full ml-4 text-xl md:text-2xl"></label>
+>>>>>>> main
                 </div>
 
             </div>
 
-            <div class="border-2 h-16 w-40 float-right mr-10 rounded-lg hover:bg-green-500 transition duration-200">
+            <!-- TODO: Reset submit button after each question -->
+            <div class="border-2 h-16 w-40 mt-8 md:mt-0 mx-auto md:float-right md:mr-10 rounded-lg hover:bg-blue-500 transition duration-200">
                 <button id="user-pressed-next" type="submit" class="h-full w-full" onsubmit="askQuestion()">Next Question</button>
             </div>
         </form> 
