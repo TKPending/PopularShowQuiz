@@ -21,7 +21,6 @@ const showButtons = () => {
     document.getElementById("finished-section").style.display = "flex";
 }
 
-
 export const quizCompletion = (finalScore) => {
     const completeDisplay = completeDisplayText(finalScore);
 
