@@ -19,7 +19,6 @@ const hideHomeScreen = () => {
     }, 2000);
 }
 
-
 const checkName = (str) => {
     const regex = /[0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
     return regex.test(str);

@@ -36,29 +36,6 @@
         </form> 
 
         <!-- Display question and options -->
-<<<<<<< HEAD
-        <form id="quiz-options" class="mx-auto h-2/4 w-10/12 p-4 items-center justify-center">
-            <div class="grid grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
-
-                <div id="first-option" class="flex items-center border-2 w-10/12 h-3/4 rounded option">
-                    <input type="radio" id="a" name="user-answer" class="ml-8 user-answer-radio" onclick="changeBgColor('first-option')">
-                    <label id="question-one" for="a" class="w-full ml-4 text-2xl"></label>
-                </div>
-    
-                <div id="second-option" class="flex items-center border-2 w-10/12 h-3/4 rounded option">
-                    <input type="radio" id="b" name="user-answer" class="ml-8 user-answer-radio" onclick="changeBgColor('second-option')">
-                    <label id="question-two" for="b" class="w-full ml-4 text-2xl"></label>
-                </div>
-    
-                <div id="third-option" class="flex items-center border-2 w-10/12 h-3/4 rounded option">
-                    <input type="radio" id="c" name="user-answer" class="ml-8 user-answer-radio" onclick="changeBgColor('third-option')">
-                    <label id="question-three" for="c" class="w-full ml-4 text-2xl"></label>
-                </div>
-    
-                <div id="four-option" class="flex items-center border-2 w-10/12 h-3/4 rounded option">
-                    <input type="radio" id="d" name="user-answer" class="ml-8 user-answer-radio" onclick="changeBgColor('fourth-option')">
-                    <label id="question-four" for="d" class="w-full ml-4 text-2xl"></label>
-=======
         <form id="quiz-options" class="mx-auto mt-10 md:mt-0 h-2/3 md:h-2/4 w-10/12 p-4 items-center justify-center">
             <div class="flex flex-col justify-around gap-4 md:grid md:grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
                 <div class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
@@ -79,9 +56,7 @@
                 <div class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
                     <input type="radio" id="d" name="user-answer" class="ml-8 user-answer-radio">
                     <label id="question-four" for="d" class="w-full ml-4 text-xl md:text-2xl"></label>
->>>>>>> main
                 </div>
-
             </div>
 
             <!-- TODO: Reset submit button after each question -->
@@ -89,32 +64,5 @@
                 <button id="user-pressed-next" type="submit" class="h-full w-full" onsubmit="askQuestion()">Next Question</button>
             </div>
         </form> 
-
-        <script>
-            const changeBgColor = (selectedOption) => {
-                const options = ["first-option", "second-option", "third-option", "fourth-option"];
-
-                // Reset background color for all options
-                options.forEach(option => {
-                    document.getElementById(option).style.backgroundColor = "white";
-                });
-
-                // Highlight the selected option
-                document.getElementById(selectedOption).style.backgroundColor = "green";
-            }
-
-            // Add hover effect
-            const optionElements = document.querySelectorAll('.option');
-            optionElements.forEach(option => {
-                option.addEventListener('mouseover', () => {
-                    option.style.backgroundColor = 'green';
-                });
-
-                option.addEventListener('mouseout', () => {
-                    const isSelected = option.querySelector('.user-answer-radio').checked;
-                    option.style.backgroundColor = isSelected ? 'green' : 'white';
-                });
-            });
-        </script>
     </body>
-</html>
+</html>g
