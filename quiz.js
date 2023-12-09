@@ -4,6 +4,7 @@ import { quizCompletion } from './complete.js';
 let score = 0;
 const quizLength = quizQuestions.length;
 let userAnswer;
+let gUsername;
 
 export const hideQuiz = () => {
     document.getElementById("question").style.display="none";
@@ -63,8 +64,6 @@ const askQuestion = async (currentQuestion) => {
                 const isCorrect = checkAnswer(userAnswer, currentQuestion.correctAnswer);
                 score += isCorrect ? 1 : 0;
 
-                console.log(`Question: ${currentQuestion.question}\nUser Answer: ${userAnswer}\nCorrect Answer: ${currentQuestion.correctAnswer}\nCurrent Score: ${score}`);
-
                 document.getElementById('quiz-options').removeEventListener("submit", handleAnswer);
                 resolve();
             } else {
@@ -90,6 +89,8 @@ const finishedQuiz = (username) => {
 }
 
 export const startQuiz = async (username) => {
+    console.log("Starting Quiz")
+    gUsername = username;
     for (let i = 0; i < quizLength; i++) {
         const currentQuestion = quizQuestions[i];
         await askQuestion(currentQuestion);
@@ -102,6 +103,9 @@ export const startQuiz = async (username) => {
     }, 2100);
     console.log(`Quiz completed. Your score: ${score}`);
 };
+
+// Track global username
+export const globalUsername = () => {return gUsername};
 
 export const optionBgColor = (selectedOption) => {
     const options = {

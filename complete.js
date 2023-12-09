@@ -1,3 +1,9 @@
+const tryAgain = document.getElementById('try-again');
+const showResults = document.getElementById('show-results');
+const completedMessage = document.getElementById('completed-message');
+const finishedSection = document.getElementById('finished-section');
+let score = 0;
+
 const completeDisplayText = (finalScore) => {
     if (finalScore < 3) {
         return {
@@ -18,17 +24,38 @@ const completeDisplayText = (finalScore) => {
 };
 
 const showButtons = () => {
-    document.getElementById("finished-section").style.display = "flex";
+    finishedSection.style.display = "flex";
 }
+
+const hideCompletePage = () => {
+    finishedSection.style.display = "none";
+}
+ 
+const restartQuiz = async () => {
+    const { startQuiz } = await import('./quiz');
+    score = 0;
+    hideCompletePage();
+    
+    setTimeout(async () => {
+        await startQuiz(globalUsername());
+    }, 2000);
+}
+
+
 
 export const quizCompletion = (finalScore) => {
     const completeDisplay = completeDisplayText(finalScore);
 
-    document.getElementById("completed-message").style.display = "block";
-    document.getElementById("completed-message").innerHTML = completeDisplay.message;
+    completedMessage.style.display = "block";
+    completedMessage.innerHTML = completeDisplay.message;
     document.body.style.backgroundColor = completeDisplay.bgColor;
 
     setTimeout(() => {
         showButtons();
     }, 3000);
 }; 
+
+tryAgain.addEventListener("click", () => {
+    tryAgain.style.backgroundColor = "blue";
+    restartQuiz()
+})
