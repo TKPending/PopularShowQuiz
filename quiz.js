@@ -101,3 +101,36 @@ export const startQuiz = async (username) => {
     }, 2100);
     console.log(`Quiz completed. Your score: ${score}`);
 };
+
+export const optionBgColor = (selectedOption) => {
+    const options = {
+        a: "option-one",
+        b: "option-two",
+        c: "option-three",
+        d: "option-four",
+    };
+
+    // Reset all options
+    for (const optionId in options) {
+        const quizOption = document.getElementById(options[optionId]);
+        quizOption.style.backgroundColor = optionId === selectedOption ? "red" : "";
+    }
+};
+
+
+// TODO: Find an efficient way of doing this. DRY
+document.getElementById("option-one").addEventListener("click", () => {
+    optionBgColor('a')
+})
+
+document.getElementById("option-two").addEventListener("click", () => {
+    optionBgColor('b');
+});
+
+document.getElementById("option-three").addEventListener("click", () => {
+    optionBgColor('c');
+});
+
+document.getElementById("option-four").addEventListener("click", () => {
+    optionBgColor('d');
+});
