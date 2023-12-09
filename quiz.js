@@ -3,6 +3,7 @@ import { quizCompletion } from './complete.js';
 
 let score = 0;
 const quizLength = quizQuestions.length;
+let userAnswer;
 
 export const hideQuiz = () => {
     document.getElementById("question").style.display="none";
@@ -55,14 +56,11 @@ const askQuestion = async (currentQuestion) => {
         const handleAnswer = (event) => {
             event.preventDefault();
 
-            const userAnswer = document.querySelector('input[name="user-answer"]:checked');
-
             if (userAnswer) {
-                const selectedAnswer = userAnswer.id;
-                const isCorrect = checkAnswer(selectedAnswer, currentQuestion.correctAnswer);
+                const isCorrect = checkAnswer(userAnswer, currentQuestion.correctAnswer);
                 score += isCorrect ? 1 : 0;
 
-                console.log(`Question: ${currentQuestion.question}\nUser Answer: ${selectedAnswer}\nCorrect Answer: ${currentQuestion.correctAnswer}\nCurrent Score: ${score}`);
+                console.log(`Question: ${currentQuestion.question}\nUser Answer: ${userAnswer}\nCorrect Answer: ${currentQuestion.correctAnswer}\nCurrent Score: ${score}`);
 
                 document.getElementById('quiz-options').removeEventListener("submit", handleAnswer);
                 resolve();
@@ -110,27 +108,31 @@ export const optionBgColor = (selectedOption) => {
         d: "option-four",
     };
 
-    // Reset all options
     for (const optionId in options) {
         const quizOption = document.getElementById(options[optionId]);
-        quizOption.style.backgroundColor = optionId === selectedOption ? "red" : "";
+        quizOption.style.backgroundColor = optionId === selectedOption ? "blue" : "";
     }
 };
 
 
 // TODO: Find an efficient way of doing this. DRY
 document.getElementById("option-one").addEventListener("click", () => {
-    optionBgColor('a')
+    optionBgColor('a');
+    userAnswer = 'a';
 })
 
 document.getElementById("option-two").addEventListener("click", () => {
     optionBgColor('b');
+    userAnswer = 'b';
+
 });
 
 document.getElementById("option-three").addEventListener("click", () => {
     optionBgColor('c');
+    userAnswer = 'c';
 });
 
 document.getElementById("option-four").addEventListener("click", () => {
     optionBgColor('d');
+    userAnswer = 'd';
 });
