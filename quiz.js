@@ -1,13 +1,9 @@
 import { quizQuestions } from './questions.js';
 import { quizCompletion } from './complete.js';
+import { hideQuiz } from './index.js';
 
 const quizLength = quizQuestions.length;
 let userAnswer;
-
-export const hideQuiz = () => {
-    document.getElementById("question").style.display="none";
-    document.getElementById("quiz-options").style.display="none";
-}
 
 const displayQuestion = (question) => {
     if (question) {
@@ -63,7 +59,7 @@ const askQuestion = async (currentQuestion, score) => {
                 score += isCorrect ? 1 : 0;
 
                 document.getElementById('quiz-options').removeEventListener("submit", handleAnswer);
-                resolve();
+                resolve(score);
             } else {
                 console.log('Please select an answer');
             }
@@ -72,6 +68,7 @@ const askQuestion = async (currentQuestion, score) => {
         document.getElementById('quiz-options').addEventListener("submit", handleAnswer);
     });
 };
+
 
 const finishedQuiz = (username) => {
     hideQuiz()
@@ -92,7 +89,7 @@ export const startQuiz = async (username) => {
 
     for (let i = 0; i < quizLength; i++) {
         const currentQuestion = quizQuestions[i];
-        await askQuestion(currentQuestion, score);
+        score = await askQuestion(currentQuestion, score);
     }
 
     finishedQuiz(username);
