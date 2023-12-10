@@ -31,11 +31,17 @@ const showButtons = () => {
     finishedSection.style.display = "flex";
 }
 
+const resetTryAgainButton = () => { 
+    tryAgain.style.backgroundColor = "transparent";
+    tryAgain.style.border = "2px solid white";
+}
+
 const hideCompletePage = () => {
     finishedSection.style.display = "none";
     document.body.style.backgroundColor = "white";
     completedMessage.style.display = "none";
-    tryAgain.style.backgroundColor = "white";
+
+    resetTryAgainButton();
 
     showQuiz();
 }
