@@ -1,5 +1,6 @@
 const tryAgain = document.getElementById('try-again');
 const showResults = document.getElementById('show-results');
+
 const completedMessage = document.getElementById('completed-message');
 const finishedSection = document.getElementById('finished-section');
 let score = 0;
@@ -29,19 +30,16 @@ const showButtons = () => {
 
 const hideCompletePage = () => {
     finishedSection.style.display = "none";
+    document.body.style.backgroundColor = "white";
+    completedMessage.style.display = "none";
 }
  
-const restartQuiz = async () => {
-    const { startQuiz } = await import('./quiz');
+const restartQuiz = () => {
     score = 0;
     hideCompletePage();
     
-    setTimeout(async () => {
-        await startQuiz(globalUsername());
-    }, 2000);
+    console.log("Restarting Quiz...")
 }
-
-
 
 export const quizCompletion = (finalScore) => {
     const completeDisplay = completeDisplayText(finalScore);
@@ -55,7 +53,9 @@ export const quizCompletion = (finalScore) => {
     }, 3000);
 }; 
 
-tryAgain.addEventListener("click", () => {
-    tryAgain.style.backgroundColor = "blue";
-    restartQuiz()
-})
+document.addEventListener("DOMContentLoaded", () => {
+    tryAgain.addEventListener("click", () => {
+        tryAgain.style.backgroundColor = "blue";
+        restartQuiz();
+    });
+});
