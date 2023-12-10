@@ -105,7 +105,9 @@ export const startQuiz = async (username) => {
 };
 
 // Track global username
-export const globalUsername = () => {return gUsername};
+export const globalUsername = () => {
+    return gUsername
+};
 
 export const optionBgColor = (selectedOption) => {
     const options = {
