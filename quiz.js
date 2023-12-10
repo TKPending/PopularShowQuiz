@@ -1,10 +1,8 @@
 import { quizQuestions } from './questions.js';
 import { quizCompletion } from './complete.js';
 
-let score = 0;
 const quizLength = quizQuestions.length;
 let userAnswer;
-let gUsername;
 
 export const hideQuiz = () => {
     document.getElementById("question").style.display="none";
@@ -53,7 +51,7 @@ const checkAnswer = (userInput, questionAnswer) => {
     return userInput === questionAnswer;
 };
 
-const askQuestion = async (currentQuestion) => {
+const askQuestion = async (currentQuestion, score) => {
     displayCurrentQuestion(currentQuestion);
 
     return new Promise((resolve) => {
@@ -89,24 +87,20 @@ const finishedQuiz = (username) => {
 }
 
 export const startQuiz = async (username) => {
-    console.log("Starting Quiz")
-    gUsername = username;
+    let score = 0;
+    console.log(`Starting Quiz\nScore: ${score}`);
+
     for (let i = 0; i < quizLength; i++) {
         const currentQuestion = quizQuestions[i];
-        await askQuestion(currentQuestion);
+        await askQuestion(currentQuestion, score);
     }
 
     finishedQuiz(username);
     
     setTimeout(() => {
-        quizCompletion(score)
+        quizCompletion(score, username)
     }, 2100);
     console.log(`Quiz completed. Your score: ${score}`);
-};
-
-// Track global username
-export const globalUsername = () => {
-    return gUsername
 };
 
 export const optionBgColor = (selectedOption) => {

@@ -1,10 +1,15 @@
-import { startQuiz, hideQuiz } from './quiz.js';
+import { startQuiz } from './quiz.js';
 
 let username = "";
 
+export const hideQuiz = () => {
+    document.getElementById("question").style.display="none";
+    document.getElementById("quiz-options").style.display="none";
+}
+
 hideQuiz();
 
-const showQuiz = () => {
+export const showQuiz = () => {
     document.getElementById("question").style.display = "block";
     document.getElementById("quiz-options").style.display = "block";
 };

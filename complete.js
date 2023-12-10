@@ -1,9 +1,12 @@
+import { showQuiz } from './index.js';
+import { startQuiz } from './quiz.js';
+
 const tryAgain = document.getElementById('try-again');
 const showResults = document.getElementById('show-results');
 
 const completedMessage = document.getElementById('completed-message');
 const finishedSection = document.getElementById('finished-section');
-let score = 0;
+let gUsername;
 
 const completeDisplayText = (finalScore) => {
     if (finalScore < 3) {
@@ -32,16 +35,20 @@ const hideCompletePage = () => {
     finishedSection.style.display = "none";
     document.body.style.backgroundColor = "white";
     completedMessage.style.display = "none";
+
+    showQuiz();
 }
  
 const restartQuiz = () => {
-    score = 0;
+    console.log(`Restarting Quiz\nName: ${gUsername}`);
     hideCompletePage();
     
     console.log("Restarting Quiz...")
+    startQuiz(gUsername);
 }
 
-export const quizCompletion = (finalScore) => {
+export const quizCompletion = (finalScore, username) => {
+    gUsername = username;
     const completeDisplay = completeDisplayText(finalScore);
 
     completedMessage.style.display = "block";
