@@ -9,6 +9,11 @@ const correctAnswersId = [
     "correct-answer-seven"
 ]
 
+
+const answerColour = (userAnswer, correctAnswer) => {
+    return userAnswer === correctAnswer ? "green" : 'red';
+}
+
 export const displayResults = (userAnswersArr, quizQuestions) => {
     let i = 0;
 
@@ -18,6 +23,11 @@ export const displayResults = (userAnswersArr, quizQuestions) => {
 
         const correctAnswerLetter = obj.correctAnswer;
         const correctAnswerText = obj.options[correctAnswerLetter];
+
+        // Change background color
+        const bgColor = answerColour(userAnswerLetter, correctAnswerLetter)
+        document.getElementById(userAnswersId[i]).style.backgroundColor = bgColor;
+        document.getElementById(correctAnswersId[i]).style.backgroundColor = bgColor;
 
         document.getElementById(userAnswersId[i]).textContent = userAnswerText;
         document.getElementById(correctAnswersId[i]).textContent = correctAnswerText;

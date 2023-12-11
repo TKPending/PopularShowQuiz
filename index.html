@@ -41,19 +41,19 @@
         <form id="quiz-options" class="mx-auto mt-10 md:mt-0 h-2/3 md:h-2/4 w-10/12 p-4 items-center justify-center">
             <div class="flex flex-col justify-around gap-4 md:grid md:grid-cols-2 items-center h-3/4 w-3/4 mx-auto">
                 <div id="option-one" class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
-                    <label id="question-one" for="a" class="w-full ml-4 text-center text-xl md:text-2xl"></label>
+                    <label id="question-one" for="a" class="w-full text-center text-xl md:text-2xl"></label>
                 </div>
     
                 <div id="option-two" class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
-                    <label id="question-two" for="b" class="w-full ml-4 text-center text-xl md:text-2xl"></label>
+                    <label id="question-two" for="b" class="w-full text-center text-xl md:text-2xl"></label>
                 </div>
     
                 <div id="option-three" class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
-                    <label id="question-three" for="c" class="w-full ml-4 text-center text-xl md:text-2xl"></label>
+                    <label id="question-three" for="c" class="w-full text-center text-xl md:text-2xl"></label>
                 </div>
     
                 <div id="option-four" class="flex items-center border-2 w-full md:w-10/12 h-3/4 rounded hover:bg-blue-500 transition duration-200">
-                    <label id="question-four" for="d" class="w-full ml-4 text-center text-xl md:text-2xl"></label>
+                    <label id="question-four" for="d" class="w-full text-center text-xl md:text-2xl"></label>
                 </div>
             </div>
 
@@ -75,54 +75,59 @@
         </section>
 
         <!-- TODO: Finished this section -->
-        <section id="final-results" class="hidden">
-            <div id="results-section">
-                <div class="flex">
-                    <h3>Your Answer</h3>
-                    <h3>Correct Answer</h3>
+        <section id="final-results" class="hidden h-full w-3/4 mb-30">
+            <div id="results-section" class="flex flex-col w-full p-4 gap-4 items-center rounded-lg">
+                <div class="flex justify-center w-full mb-4">
+                    <h3 class="mx-auto border-2 border-blue-500">Your Answer</h3>
+                    <h3 class="mx-auto border-2 border-blue-500">Correct Answer</h3>
+                </div>                
+
+                <!-- Question 1 -->
+                <div id="first" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-one" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-one" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
 
-                <div id="number-one" class="flex gap-4 border-2">
-                    <h3 id="user-answer-one"></h3>
-                    <h3 id="correct-answer-one"></h3>
+                <!-- Question 2 -->
+                <div id="second" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-two" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-two" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
 
-                <div id="number-two" class="flex gap-4 border-2">
-                    <h3 id="user-answer-two"></h3>
-                    <h3 id="correct-answer-two"></h3>
+                <!-- Question 3 -->
+                <div id="third" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-three" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-three" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
 
-                <div id="number-three" class="flex gap-4 border-2">
-                    <h3 id="user-answer-three"></h3>
-                    <h3 id="correct-answer-three"></h3>
+                <!-- Question 4 -->
+                <div id="fourth" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-four" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-four" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
 
-                <div id="number-four" class="flex gap-4 border-2">
-                    <h3 id="user-answer-four"></h3>
-                    <h3 id="correct-answer-four"></h3>
-                </div>
-                
-                <div id="number-five" class="flex gap-4 border-2">
-                    <h3 id="user-answer-five"></h3>
-                    <h3 id="correct-answer-five"></h3>
+                <!-- Question 5 -->
+                <div id="fifth" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-five" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-five" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
 
-                <div id="number-six" class="flex gap-4 border-2">
-                    <h3 id="user-answer-six"></h3>
-                    <h3 id="correct-answer-six"></h3>
+                <!-- Question 6 -->
+                <div id="sixth" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-six" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-six" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
 
-                <div id="number-seven" class="flex gap-4 border-2">
-                    <h3 id="user-answer-seven"></h3>
-                    <h3 id="correct-answer-seven"></h3>
+                <!-- Question 7 -->
+                <div id="seventh" class="flex gap-4 w-full md:w-3/4 h-16 text-center rounded-lg">
+                    <h3 id="user-answer-seven" class="w-3/4 md:w-2/4 h-full border-2"></h3>
+                    <h3 id="correct-answer-seven" class="w-3/4 md:w-2/4 h-full border-2"></h3>
                 </div>
             </div>
 
-            <div id="results-try-again">
+            <div id="results-try-again" class="float-right flex items-center justify-center border-2 h-1/4 w-64 md:w-1/4 text-center rounded-2xl hover:shadow-md hover:bg-blue-500">
                 <h4>Try Again?</h4>
             </div>
-        </section>
-
-        
+        </section>       
     </body>
 </html>

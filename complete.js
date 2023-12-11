@@ -51,6 +51,7 @@ const hideCompletePage = () => {
 
     resetButton(tryAgainButton);
     resetButton(showResultsButton);
+    resetButton(resultsTryAgainButton)
 
     showQuiz();
 }
