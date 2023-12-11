@@ -1,11 +1,16 @@
 import { showQuiz } from './index.js';
 import { startQuiz } from './quiz.js';
+import { displayResults } from './results-logic.js';
+import { quizQuestions } from './questions.js';
 
-const tryAgain = document.getElementById('try-again');
-const showResults = document.getElementById('show-results');
+const tryAgainButton = document.getElementById('try-again');
+const showResultsButton = document.getElementById('show-results');
 
 const completedMessage = document.getElementById('completed-message');
 const finishedSection = document.getElementById('finished-section');
+
+const finalResults = document.getElementById("final-results");
+const finalResultSection = document.getElementById("results-section");
 let gUsername;
 
 const completeDisplayText = (finalScore) => {
@@ -32,8 +37,8 @@ const showButtons = () => {
 }
 
 const resetTryAgainButton = () => { 
-    tryAgain.style.backgroundColor = "transparent";
-    tryAgain.style.border = "2px solid white";
+    tryAgainButton.style.backgroundColor = "transparent";
+    tryAgainButton.style.border = "2px solid white";
 }
 
 const hideCompletePage = () => {
@@ -68,8 +73,8 @@ export const quizCompletion = (finalScore, username) => {
 }; 
 
 document.addEventListener("DOMContentLoaded", () => {
-    tryAgain.addEventListener("click", () => {
-        tryAgain.style.backgroundColor = "blue";
+    tryAgainButton.addEventListener("click", () => {
+        tryAgainButton.style.backgroundColor = "blue";
         restartQuiz();
     });
 });

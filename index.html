@@ -11,6 +11,7 @@
         <script defer type="module" src="index.js"></script>
         <script defer type="module" src="questions.js"></script>
         <script defer type="module" src="complete.js"></script>
+        <script defer type="module" src="results-logic.js"></script>
     </head>
     
     <body class="flex flex-col h-screen w-screen items-center justify-center bg-stone-600">
@@ -72,10 +73,10 @@
         </section>
 
         <!-- TODO: Finished this section -->
-        <section id="show-results" class="hidden">
+        <section id="final-results" class="hidden">
             <h1>Here are the answers to the questions</h1>
 
-            <div id="results">
+            <div id="results-section">
                 <div id="number-one">
                     <h3 id="user-answer-one"></h3>
                     <h3 id="correct-answer-one"></h3>
