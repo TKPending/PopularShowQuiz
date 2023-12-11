@@ -5,6 +5,7 @@ import { quizQuestions } from './questions.js';
 
 const tryAgainButton = document.getElementById('try-again');
 const showResultsButton = document.getElementById('show-results');
+const resultsTryAgainButton = document.getElementById("results-try-again");
 
 const completedMessage = document.getElementById('completed-message');
 const finishedSection = document.getElementById('finished-section');
@@ -53,6 +54,11 @@ const hideCompletePage = () => {
 
     showQuiz();
 }
+
+const hideResults = () => {
+    finalResults.style.display = "none";
+    document.getElementById("show-result-text").style.display = "none";
+}
  
 const restartQuiz = () => {
     hideCompletePage();
@@ -100,8 +106,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+// Restart quiz from showing results
 document.addEventListener("DOMContentLoaded", () => {
-    tryAgainButton.addEventListener("click", () => {
+    resultsTryAgainButton.addEventListener("click", () => {
+        resultsTryAgainButton.style.backgroundColor = "blue";
+        hideResults();
+        restartQuiz();
+    });
+});
+
+// Restart quiz
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("results-try-again").addEventListener("click", () => {
         tryAgainButton.style.backgroundColor = "blue";
         restartQuiz();
     });
