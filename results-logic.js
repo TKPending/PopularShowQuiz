@@ -11,7 +11,9 @@ const correctAnswersId = [
 
 export const displayResults = (userAnswersArr, quizQuestions) => {
     let i = 0;
+
     for (const obj of quizQuestions) {
+        console.log(i);
         const userAnswerLetter = userAnswersArr[i];
         const userAnswerText = obj.options[userAnswerLetter];
 

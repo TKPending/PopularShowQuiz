@@ -1,4 +1,4 @@
-import { showQuiz } from './index.js';
+import { showQuiz, hideQuiz } from './index.js';
 import { startQuiz } from './quiz.js';
 import { displayResults } from './results-logic.js';
 import { quizQuestions } from './questions.js';
@@ -11,7 +11,9 @@ const finishedSection = document.getElementById('finished-section');
 
 const finalResults = document.getElementById("final-results");
 const finalResultSection = document.getElementById("results-section");
+
 let gUsername;
+let gUserAnswerArr;
 
 const completeDisplayText = (finalScore) => {
     if (finalScore < 3) {
@@ -36,9 +38,9 @@ const showButtons = () => {
     finishedSection.style.display = "flex";
 }
 
-const resetTryAgainButton = () => { 
-    tryAgainButton.style.backgroundColor = "transparent";
-    tryAgainButton.style.border = "2px solid white";
+const resetButton = (buttonName) => { 
+    buttonName.style.backgroundColor = "transparent";
+    buttonName.style.border = "2px solid white";
 }
 
 const hideCompletePage = () => {
@@ -46,21 +48,39 @@ const hideCompletePage = () => {
     document.body.style.backgroundColor = "white";
     completedMessage.style.display = "none";
 
-    resetTryAgainButton();
+    resetButton(tryAgainButton);
+    resetButton(showResultsButton);
 
     showQuiz();
 }
  
 const restartQuiz = () => {
-    console.log(`Restarting Quiz\nName: ${gUsername}`);
     hideCompletePage();
     
     console.log("Restarting Quiz...")
     startQuiz(gUsername);
 }
 
-export const quizCompletion = (finalScore, username) => {
+const showResults = () => {
+    hideQuiz();
+
+    finalResults.style.display = "block";
+    finalResultSection.display = "flex";
+    document.getElementById("show-result-text").style.display = "block";
+
+    displayResults(gUserAnswerArr, quizQuestions );
+}
+
+const showFinalResults = () => {
+    hideCompletePage();
+
+    console.log("Showing Results...");
+    showResults();
+}
+
+export const quizCompletion = (finalScore, username, userAnswerArr) => {
     gUsername = username;
+    gUserAnswerArr = userAnswerArr;
     const completeDisplay = completeDisplayText(finalScore);
 
     completedMessage.style.display = "block";
@@ -71,6 +91,14 @@ export const quizCompletion = (finalScore, username) => {
         showButtons();
     }, 3000);
 }; 
+
+// Show Results
+document.addEventListener("DOMContentLoaded", () => {
+    showResultsButton.addEventListener("click", () => {
+        showResultsButton.style.backgroundColor = "blue";
+        showFinalResults(gUserAnswerArr);
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     tryAgainButton.addEventListener("click", () => {

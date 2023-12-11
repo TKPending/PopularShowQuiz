@@ -47,7 +47,7 @@ const checkAnswer = (userInput, questionAnswer) => {
     return userInput === questionAnswer;
 };
 
-const askQuestion = async (currentQuestion, score) => {
+const askQuestion = async (currentQuestion, score, userAnswerArr) => {
     displayCurrentQuestion(currentQuestion);
 
     return new Promise((resolve) => {
@@ -55,6 +55,8 @@ const askQuestion = async (currentQuestion, score) => {
             event.preventDefault();
 
             if (userAnswer) {
+                userAnswerArr.push(userAnswer);
+
                 const isCorrect = checkAnswer(userAnswer, currentQuestion.correctAnswer);
                 score += isCorrect ? 1 : 0;
 
@@ -85,17 +87,18 @@ const finishedQuiz = (username) => {
 
 export const startQuiz = async (username) => {
     let score = 0;
+    const userAnswerArr = [];
     console.log(`Starting Quiz\nScore: ${score}`);
 
     for (let i = 0; i < quizLength; i++) {
         const currentQuestion = quizQuestions[i];
-        score = await askQuestion(currentQuestion, score);
+        score = await askQuestion(currentQuestion, score, userAnswerArr);
     }
 
     finishedQuiz(username);
     
     setTimeout(() => {
-        quizCompletion(score, username)
+        quizCompletion(score, username, userAnswerArr)
     }, 2100);
     console.log(`Quiz completed. Your score: ${score}`);
 };

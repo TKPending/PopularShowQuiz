@@ -23,6 +23,7 @@
             </h1> 
             <h1 id="question" class="mx-auto text-xl md:text-4xl text-center"></h1>
             <h1 id="completed-message" class="mx-auto text-xl md:text-4xl text-center transition duration-500 hidden"></h1>
+            <h1 id="show-result-text" class="mx-auto text-xl md:text-4xl text-center transition duration-500 hidden">Here are the answers to the questions</h1>
         </div>
     
         <!-- Get the player's name -->       
@@ -62,6 +63,7 @@
             </div>
         </form> 
 
+        <!-- Buttons to try again and see results -->
         <section id="finished-section" class="h-1/3 w-2/4 flex justify-around items-center gap-4 md:gap-0 hidden">
             <div id="try-again" class="text-white flex items-center justify-center border-2 h-1/4 w-64 md:w-1/4 text-center rounded-2xl hover:shadow-md hover:bg-blue-500">
                 <h3>Try Again?</h3>
@@ -74,40 +76,43 @@
 
         <!-- TODO: Finished this section -->
         <section id="final-results" class="hidden">
-            <h1>Here are the answers to the questions</h1>
-
             <div id="results-section">
-                <div id="number-one">
+                <div class="flex">
+                    <h3>Your Answer</h3>
+                    <h3>Correct Answer</h3>
+                </div>
+
+                <div id="number-one" class="flex gap-4 border-2">
                     <h3 id="user-answer-one"></h3>
                     <h3 id="correct-answer-one"></h3>
                 </div>
 
-                <div id="number-two">
+                <div id="number-two" class="flex gap-4 border-2">
                     <h3 id="user-answer-two"></h3>
-                    <h3 id="correct-answer-three"></h3>
+                    <h3 id="correct-answer-two"></h3>
                 </div>
 
-                <div id="number-three">
+                <div id="number-three" class="flex gap-4 border-2">
                     <h3 id="user-answer-three"></h3>
                     <h3 id="correct-answer-three"></h3>
                 </div>
 
-                <div id="number-four">
+                <div id="number-four" class="flex gap-4 border-2">
                     <h3 id="user-answer-four"></h3>
                     <h3 id="correct-answer-four"></h3>
                 </div>
                 
-                <div id="number-five">
+                <div id="number-five" class="flex gap-4 border-2">
                     <h3 id="user-answer-five"></h3>
                     <h3 id="correct-answer-five"></h3>
                 </div>
 
-                <div id="number-six">
+                <div id="number-six" class="flex gap-4 border-2">
                     <h3 id="user-answer-six"></h3>
                     <h3 id="correct-answer-six"></h3>
                 </div>
 
-                <div id="number-seven">
+                <div id="number-seven" class="flex gap-4 border-2">
                     <h3 id="user-answer-seven"></h3>
                     <h3 id="correct-answer-seven"></h3>
                 </div>
